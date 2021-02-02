@@ -1,0 +1,230 @@
+#:import utils kivy.utils
+
+ScreenManager:
+    MainScreen:
+    RegisterScreen:
+    LoginScreen:
+    DashboardScreen:
+
+
+
+<MainScreen> :
+
+    name: "main"
+    MDBoxLayout:
+        orientation: "vertical"
+        FitImage:
+            source:"assets/img/desert.jpg"
+
+
+
+    MDFloatLayout:
+
+
+        MDLabel:
+            text: "Tikerwit"
+            theme_text_color: "Custom"
+            text_color: utils.get_color_from_hex("#FFFFFF")
+            font_style: "H3"
+            font_name: "assets/fonts/Pacifico-Regular.ttf"
+            halign: "center"
+            pos_hint: {"center_x": .5 , "center_y": .7}
+
+        MDFillRoundFlatButton:
+
+            text: "Register"
+            text_color: 1,1,1,1
+            pos_hint: {"center_x": .5, "center_y": .5}
+            md_bg_color: utils.get_color_from_hex("#FFFFFF")
+            on_release: root.manager.current = 'register'
+
+        MDFillRoundFlatButton:
+
+            text: "Login"
+            text_color: 1,1,1,1
+            md_bg_color: utils.get_color_from_hex("#FFFFFF")
+            pos_hint: {"center_x": .5, "center_y": .4}
+            on_release: root.manager.current = 'login'
+
+
+<RegisterScreen> :
+
+    name: "register"
+
+    MDBoxLayout:
+        orientation: "vertical"
+        FitImage:
+            source:"assets/img/desert.jpg"
+            opacity:
+
+    MDFloatLayout:
+
+        MDLabel:
+            text: "Registration"
+            theme_text_color: "Custom"
+            pos_hint: {"center_x": .5, "center_y": .6}
+            theme_text_color: "Custom"
+            text_color: utils.get_color_from_hex("#FFFFFF")
+            font_style: "H5"
+            font_name: "assets/fonts/Pacifico-Regular.ttf"
+            halign: "center"
+
+
+        MDIconButton:
+            icon: "account-arrow-right"
+            pos_hint : {"center_x": .5, "center_y": .8}
+            theme_text_color: "Custom"
+            text_color: utils.get_color_from_hex("#FFFFFF")
+            user_font_size: "50sp"
+
+
+        MDTextFieldRound:
+            id: "register_em_tf"
+            icon_left: "mail"
+            hint_text: "email"
+            required: False
+            helper_text_mode: "on_focus"
+            helper_text: "Please enter Name"
+            pos_hint : {"center_x": .5, "center_y": .5}
+            size_hint_x : None
+            width:230
+            normal_color: utils.get_color_from_hex("#FFFFFF")
+            color_active: utils.get_color_from_hex("#e29e57")
+
+
+
+        MDTextFieldRound:
+            id: "register_ps_tf"
+            icon_left: "key"
+            hint_text: "password"
+            required: True
+            password:True
+            helper_text_mode: "on_focus"
+            helper_text: "Please enter password"
+            pos_hint : {"center_x": .5, "center_y": .4}
+            size_hint_x : None
+            width:230
+            normal_color: utils.get_color_from_hex("#FFFFFF")
+            color_active: utils.get_color_from_hex("#e29e57")
+
+
+
+
+        MDFillRoundFlatButton:
+            text: "Register"
+            pos_hint : {"center_x": .5, "center_y": .3}
+            text_color: 1,1,1,1
+            on_release: root.manager.current = "dashboard"
+            md_bg_color:utils.get_color_from_hex("#FFFFFF")
+
+        MDFillRoundFlatButton:
+            text: "Go back"
+            pos_hint : {"center_x": .5, "center_y": .2}
+            text_color: 1,1,1,1
+            on_release: root.manager.current = "main"
+            md_bg_color:utils.get_color_from_hex("#FFFFFF")
+
+
+
+
+
+<LoginScreen>:
+    name: "login"
+    MDBoxLayout:
+        orientation: "vertical"
+        FitImage:
+            source:"assets/img/desert.jpg"
+            opacity:
+
+    MDFloatLayout:
+
+        MDLabel:
+            text: "Login"
+            theme_text_color: "Custom"
+            pos_hint: {"center_x": .5, "center_y": .6}
+            theme_text_color: "Custom"
+            text_color: utils.get_color_from_hex("#FFFFFF")
+            font_style: "H5"
+            halign: "center"
+
+
+        MDIconButton:
+            icon: "account-circle"
+            pos_hint : {"center_x": .5, "center_y": .8}
+            theme_text_color: "Custom"
+            text_color: utils.get_color_from_hex("#FFFFFF")
+            user_font_size: "50sp"
+
+
+        MDTextFieldRound:
+            id: "login_em_tf"
+            icon_left: "mail"
+            hint_text: "email"
+            required: False
+            helper_text_mode: "on_focus"
+            helper_text: "Please enter Name"
+            pos_hint : {"center_x": .5, "center_y": .5}
+            size_hint_x : None
+            width:230
+            color_active: utils.get_color_from_hex("#e29e57")
+
+
+
+        MDTextFieldRound:
+            id: "login_ps_tf"
+            icon_left: "key"
+            hint_text: "password"
+            required: True
+            password:True
+            helper_text_mode: "on_focus"
+            helper_text: "Please enter password"
+            pos_hint : {"center_x": .5, "center_y": .4}
+            size_hint_x : None
+            width:230
+            color_active: utils.get_color_from_hex("#e29e57")
+
+
+
+
+        MDFillRoundFlatButton:
+            text: "Login"
+            pos_hint : {"center_x": .5, "center_y": .3}
+            text_color: 1,1,1,1
+            on_release: root.manager.current = "dashboard"
+            md_bg_color:utils.get_color_from_hex("#FFFFFF")
+
+        MDFillRoundFlatButton:
+            text: "Go back"
+            pos_hint : {"center_x": .5, "center_y": .2}
+            text_color: 1,1,1,1
+            on_release: root.manager.current = "main"
+            md_bg_color:utils.get_color_from_hex("#FFFFFF")
+
+
+
+<DashboardScreen>:
+
+    name: "dashboard"
+
+    MDBottomNavigation:
+        panel_color: utils.get_color_from_hex('#FFFFFF')
+
+        MDBottomNavigationItem:
+            name: "order_screen"
+            icon: "plus-circle"
+            text: "Order"
+
+
+        MDBottomNavigationItem:
+            name: "cart_screen"
+            icon: "cart-outline"
+            text: "Cart"
+
+
+        MDBottomNavigationItem:
+            name: "settings_screen"
+            icon: "account-cog-outline"
+            text: "Settings"
+
+
+
